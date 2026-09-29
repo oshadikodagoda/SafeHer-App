@@ -32,11 +32,13 @@ app.use('/uploads', express.static('uploads'));
 // IMPORT ROUTES
 // ============================================
 const authRoutes = require('./routes/authRoutes');
+const incidentRoutes = require('./routes/incidentRoutes');
 
 // ============================================
 // USE ROUTES
 // ============================================
 app.use('/api/auth', authRoutes);
+app.use('/api/incidents', incidentRoutes); 
 
 // ============================================
 // TEST ROUTE
