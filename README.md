@@ -2,9 +2,9 @@
 
 **A MERN-stack web application for women's safety — report incidents, view unsafe areas on a map, and access emergency support.**
 
-![Status](https://img.shields.io/badge/status-in%20development-yellow)
+![Status](https://img.shields.io/badge/status-complete-brightgreen)
 ![Backend](https://img.shields.io/badge/backend-complete-brightgreen)
-![Frontend](https://img.shields.io/badge/frontend-coming%20soon-orange)
+![Frontend](https://img.shields.io/badge/frontend-complete-brightgreen)
 ![License](https://img.shields.io/badge/license-educational-blue)
 
 ---
