@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiPhone, FiMapPin, FiShield, FiHeart, FiAlertCircle } from 'react-icons/fi';
+import { FiPhone, FiShield, FiHeart, FiAlertCircle } from 'react-icons/fi';
 
 const Emergency = () => {
   const emergencyContacts = [
