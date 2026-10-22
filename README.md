@@ -230,23 +230,24 @@ An admin logs in and views:
 
 ### ✅ Completed
 - [x] Backend API (auth, incidents, admin)
-- [x] User model + Incident model
+- [x] User + Incident models
 - [x] JWT authentication
 - [x] Admin approval workflow
 - [x] API testing with Postman
+- [x] React frontend UI (8 pages)
+- [x] Interactive safety map (Leaflet)
+- [x] Emergency contacts page
+- [x] Admin dashboard with analytics
+- [x] My Reports page
 
 ### 🚧 In Progress
-- [ ] React frontend UI
-- [ ] Interactive safety map (Leaflet)
 - [ ] Photo upload feature
-- [ ] Emergency contacts page
+- [ ] Deployment (Vercel + Render)
+- [ ] Mobile responsive menu
 
 ### 📅 Planned
-- [ ] Deployment (Vercel + Render)
-- [ ] Mobile responsive design
-- [ ] Email notifications for admins
+- [ ] Email notifications
 - [ ] Real-time updates (Socket.io)
-
 ---
 
 ## 🔒 Security Features
