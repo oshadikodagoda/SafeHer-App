@@ -14,6 +14,7 @@ const {
   getAllIncidentsAdmin,
   updateIncidentStatus,
   getAdminDashboard,
+  deleteIncident,
 } = require('../controllers/incidentController');
 
 const { protect, adminOnly } = require('../middleware/authMiddleware');
@@ -24,6 +25,7 @@ const { protect, adminOnly } = require('../middleware/authMiddleware');
 router.get('/admin/all', protect, adminOnly, getAllIncidentsAdmin);
 router.get('/admin/dashboard', protect, adminOnly, getAdminDashboard);
 router.put('/:id/status', protect, adminOnly, updateIncidentStatus);
+router.delete('/:id', protect, adminOnly, deleteIncident);
 
 // ============================================
 // PUBLIC ROUTES

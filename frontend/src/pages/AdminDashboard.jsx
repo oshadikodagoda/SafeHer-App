@@ -8,6 +8,7 @@ import {
   FiTrendingUp,
   FiMapPin,
   FiRefreshCw,
+  FiTrash2, // <-- Added for Delete
 } from 'react-icons/fi';
 import { incidentAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
@@ -76,7 +77,6 @@ const AdminDashboard = () => {
     try {
       const res = await incidentAPI.updateStatus(id, status);
       if (res.data.success) {
-        // Refresh data
         await fetchData();
       }
     } catch (err) {
@@ -84,6 +84,26 @@ const AdminDashboard = () => {
       alert(err.response?.data?.message || 'Failed to update status');
     } finally {
       setUpdatingId(null);
+    }
+  };
+
+  // ============================================
+  // DELETE INCIDENT
+  // ============================================
+  const handleDelete = async (id) => {
+    if (window.confirm('Are you sure you want to permanently delete this incident? This action cannot be undone.')) {
+      setUpdatingId(id);
+      try {
+        const res = await incidentAPI.deleteIncident(id);
+        if (res.data.success) {
+          await fetchData();
+        }
+      } catch (err) {
+        console.error('Delete error:', err);
+        alert(err.response?.data?.message || 'Failed to delete incident');
+      } finally {
+        setUpdatingId(null);
+      }
     }
   };
 
@@ -204,8 +224,7 @@ const AdminDashboard = () => {
             ) : (
               <div className="space-y-3">
                 {dashboard.byType.map((item) => {
-                  const percentage =
-                    (item.count / dashboard.totalReports) * 100;
+                  const percentage = (item.count / dashboard.totalReports) * 100;
                   return (
                     <div key={item._id}>
                       <div className="flex justify-between text-sm mb-1">
@@ -344,6 +363,16 @@ const AdminDashboard = () => {
                           <FiXCircle size={14} /> Reject
                         </button>
                       )}
+                      
+                      {/* DELETE BUTTON */}
+                      <button
+                        onClick={() => handleDelete(incident._id)}
+                        disabled={updatingId === incident._id}
+                        className="px-3 py-2 bg-gray-200 hover:bg-red-100 text-gray-500 hover:text-red-600 text-xs font-semibold rounded-lg transition-all disabled:opacity-50 flex items-center gap-1.5"
+                        title="Delete Incident"
+                      >
+                        <FiTrash2 size={16} />
+                      </button>
                     </div>
                   </div>
                 </div>

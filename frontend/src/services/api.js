@@ -50,6 +50,7 @@ export const incidentAPI = {
   getAllAdmin: () => api.get('/incidents/admin/all'),
   updateStatus: (id, status) => api.put(`/incidents/${id}/status`, { status }),
   getDashboard: () => api.get('/incidents/admin/dashboard'),
+  deleteIncident: (id) => api.delete(`/incidents/${id}`), // <-- Add this line
 };
 
 export default api;
